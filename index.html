@@ -16,12 +16,8 @@
     <script src="assets/js/theme-switcher.js"></script>
 
     <!-- Favicon and Touch Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#e30613">
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" href="assets/favicon/favicon.svg">
+<link rel="apple-touch-icon" href="assets/favicon/favicon.svg">
     <meta name="msapplication-TileColor" content="#080032">
     <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
@@ -152,6 +148,20 @@ body {
 @media (min-width:992px){.hero-min{min-height:100%}}
 @media (max-width:575.98px){.jarallax .jarallax-img{background-position:center top!important}}
 
+.header.navbar {
+  min-height: 64px;
+}
+
+.header.navbar-sticky.navbar-stuck {
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(6px);
+  z-index: 1030;
+}
+
+.offcanvas {
+  z-index: 1045; /* stays above header */
+}
+
     </style>
 
     <!-- Page loading scripts -->
@@ -186,57 +196,88 @@ body {
 
 
       <!-- Navbar -->
+<!-- Navbar / Header -->
 <header class="header navbar navbar-expand-lg navbar-sticky bg-transparent">
-  <div class="container px-3">
+  <div class="container px-3 d-flex align-items-center">
+
     <!-- Logo -->
     <a href="index.html" class="navbar-brand pe-3 d-flex align-items-center">
       <img src="assets/img/logo.svg" width="200" alt="Logo Proprio Direct" class="me-4">
     </a>
 
-    <!-- Navigation -->
-    <div id="navbarNav" class="offcanvas offcanvas-end">
-      <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link active" aria-current="page">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a href="#services" class="nav-link">Services</a>
-          </li>
-          <li class="nav-item">
-            <a href="#a-propos" class="nav-link">À propos</a>
-          </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link">Contact</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Mobile button -->
-      <div class="offcanvas-header border-top">
-        <a href="#contact" class="btn btn-primary w-100">
-          <i class="bx bx-phone-call fs-4 lh-1 me-1"></i>
-          &nbsp;(819)&nbsp;679-1960
-        </a>
-      </div>
-    </div>
-
-    <!-- Toggler -->
-    <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Ouvrir la navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Desktop nav links -->
+    <ul class="navbar-nav d-none d-lg-flex me-auto mb-0">
+      <li class="nav-item">
+        <a href="index.html" class="nav-link active" aria-current="page">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a href="#services" class="nav-link">Services</a>
+      </li>
+      <li class="nav-item">
+        <a href="#a-propos" class="nav-link">À propos</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link">Contact</a>
+      </li>
+    </ul>
 
     <!-- Desktop call button -->
-    <a href="tel:8196791960" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex">
+    <a href="tel:8196791960"
+       class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex ms-3">
       <i class="bx bx-phone-call fs-5 lh-1 me-1"></i>
       &nbsp;(819)&nbsp;679-1960
     </a>
+
+    <!-- Hamburger / toggler (mobile only) -->
+    <button type="button"
+            class="navbar-toggler d-lg-none ms-auto"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Ouvrir la navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
   </div>
 </header>
+<!-- Offcanvas nav (mobile / tablet menu) -->
+<nav id="navbarNav"
+     class="offcanvas offcanvas-end"
+     tabindex="-1"
+     aria-labelledby="navbarNavLabel">
+  
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title" id="navbarNavLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a href="index.html" class="nav-link active" aria-current="page">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a href="#services" class="nav-link">Services</a>
+      </li>
+      <li class="nav-item">
+        <a href="#a-propos" class="nav-link">À propos</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link">Contact</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile call button -->
+  <div class="offcanvas-header border-top d-lg-none">
+    <a href="tel:8196791960" class="btn btn-primary w-100">
+      <i class="bx bx-phone-call fs-4 lh-1 me-1"></i>
+      &nbsp;(819)&nbsp;679-1960
+    </a>
+  </div>
+</nav>
+
 
 
 
@@ -256,7 +297,7 @@ body {
           <div class="jarallax position-absolute top-0 start-0 w-100 h-100 rounded-3 rounded-start-0 overflow-hidden"
                data-jarallax data-speed="0.3" data-img-position="center top">
             <div class="jarallax-img"
-                 style="background-image:url('assets/img/landing/financial/Maude.jpeg');"
+                 style="background-image:url('assets/img/hero.png');"
                  aria-label="Photo de maison moderne en Estrie"></div>
           </div>
         </div>
@@ -275,7 +316,7 @@ body {
               <p class="fs-xl fw-bold text-muted text-uppercase mb-3">Courtière immobilière</p>
               <h1 class="display-5 text-light pb-3 mb-3">Maude Boivin</h1>
               <p class="fs-lg text-light opacity-70 mb-5">
-                Double expertise en courtage et inspection. <br> Un Service humain, transparent, centré sur vos intérêts.
+                Double expertise en courtage et en urbanisme. <br> Un Service humain, transparent, centré sur vos intérêts.
               </p>
               <div class="d-flex flex-column flex-sm-row">
                 <a href="#contact" class="btn btn-primary btn-lg mb-3 mb-sm-0 me-sm-4">Me contacter</a>
@@ -326,7 +367,7 @@ body {
 
             <!-- Achat -->
             <div class="swiper-slide">
-              <a href="#"><img src="assets/img/landing/financial/services/01.jpg" class="rounded-3" alt="Achat de propriété"></a>
+              <a href="#"><img src="assets/img/achatmaison.png" class="rounded-3" alt="Achat de propriété"></a>
               <div class="pt-4">
                 <h3 class="h4" id="a-propos">Accompagnement à l’achat</h3>
                 <ul class="list-unstyled">
@@ -349,7 +390,7 @@ body {
 
             <!-- Vente -->
             <div class="swiper-slide">
-              <a href="#"><img src="assets/img/landing/financial/services/02.jpg" class="rounded-3" alt="Vente de propriété"></a>
+              <a href="#"><img src="assets/img/vente.png" class="rounded-3" alt="Vente de propriété"></a>
               <div class="pt-4">
                 <h3 class="h4">Mise en marché (vente)</h3>
                 <ul class="list-unstyled">
@@ -372,7 +413,7 @@ body {
 
             <!-- Évaluation & conseils -->
             <div class="swiper-slide">
-              <a href="#"><img src="assets/img/landing/financial/services/03.jpg" class="rounded-3" alt="Évaluation et conseils"></a>
+              <a href="#"><img src="assets/img/eval.png" class="rounded-3" alt="Évaluation et conseils"></a>
               <div class="pt-4">
                 <h3 class="h4">Évaluation & conseils</h3>
                 <ul class="list-unstyled">
@@ -405,11 +446,14 @@ body {
         <div class="card bg-white border-primary shadow-sm px-4 px-lg-0" data-bs-theme="light">
           <div class="row align-items-center py-3">
             <div class="col-xl-5 col-md-6 offset-lg-1 text-center text-md-start py-4 py-lg-5">
-              <h2 class="h1">Acheter ou vendre sans pression</h2>
-              <h3 class="h4 text-primary">Vos intérêts avant tout</h3>
+   <h2 class="h1" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:2.5rem;color:#000;margin:0;">
+  L'avantage Proprio<span style="font-weight:400;color:#000;">Direct</span>
+</h2>
+
+              <h3 class="h4 text-primary">Le meilleur des deux mondes</h3>
               <p class="mb-4 mb-lg-5">
-                Je privilégie la satisfaction et la tranquillité d’esprit. Avec mon réseau (photographe, inspecteur, entrepreneur),
-                vous bénéficiez d’un accompagnement complet, professionnel et humain — du début à la fin.
+              Faire affaire avec Proprio Direct, c’est profiter d’un modèle unique : votre propriété est offerte à 100 % des acheteurs — ceux qui recherchent les services d’un courtier et ceux qui préfèrent vendre par eux-mêmes.
+ <br> <br>Vous bénéficiez ainsi du meilleur des deux mondes, à partir de 2 % seulement.
               </p>
               <a href="#contact" class="btn btn-primary">Planifier un appel</a>
             </div>
@@ -477,7 +521,7 @@ body {
 
 
 
-<section class="position-relative py-5" style="background-image: url('assets/img/contact-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" id="contact">
+<section class="position-relative py-5" style="background-image: url('assets/img/contact-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;" id="contact">
   <!-- Overlay -->
   <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.6);"></div>
 
@@ -561,5 +605,24 @@ body {
 
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const offcanvasEl = document.getElementById('navbarNav');
+
+    if (!offcanvasEl) return;
+
+    // Get Bootstrap Offcanvas instance (theme.min.js already loads Bootstrap JS)
+    const offcanvasCtrl = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+
+    // Attach to each link inside the offcanvas
+    offcanvasEl.querySelectorAll('.nav-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        offcanvasCtrl.hide();
+      });
+    });
+  });
+</script>
+
   </body>
 </html>
