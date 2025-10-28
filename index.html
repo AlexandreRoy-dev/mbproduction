@@ -161,6 +161,26 @@ body {
 .offcanvas {
   z-index: 1045; /* stays above header */
 }
+.pagination {
+  opacity: 0;
+  pointer-events: none;
+}
+/* Make author images perfectly circular and prevent oval distortion */
+img.rounded-circle {
+  width: 64px;          /* you can adjust size */
+  height: 64px;
+  object-fit: cover;    /* ensures the image fills the circle */
+  aspect-ratio: 1 / 1;  /* modern browsers: keeps it perfectly square */
+  border-radius: 50% !important; /* force roundness */
+}
+
+/* Optional: handle smaller sizes on mobile */
+@media (max-width: 576px) {
+  img.rounded-circle {
+    width: 56px;
+    height: 56px;
+  }
+}
 
     </style>
 
@@ -297,7 +317,7 @@ body {
           <div class="jarallax position-absolute top-0 start-0 w-100 h-100 rounded-3 rounded-start-0 overflow-hidden"
                data-jarallax data-speed="0.3" data-img-position="center top">
             <div class="jarallax-img"
-                 style="background-image:url('assets/img/hero.png');"
+                 style="background-image:url('assets/img/hero.jpeg');"
                  aria-label="Photo de maison moderne en Estrie"></div>
           </div>
         </div>
@@ -440,6 +460,99 @@ body {
         </div>
       </section>
 
+<section class="container mb-5 pt-2 pb-3 py-md-4 py-lg-5">
+        <h2 class="h1 pb-2 pb-lg-0 mb-4 mb-lg-5 text-center">À propos</h2>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card border-0 shadow-sm p-4 p-xxl-5 mb-4 me-xxl-4">
+
+              <!-- Quotation mark -->
+              <div class="pb-4 mb-2">
+                <span class="btn btn-icon btn-primary btn-lg shadow-primary pe-none">
+                  <i class="bx bxs-quote-left"></i>
+                </span>
+              </div>
+
+              <!-- Slider -->
+              <div class="swiper mx-0 mb-md-n2 mb-xxl-n3 swiper-initialized swiper-horizontal swiper-backface-hidden" data-swiper-options="{
+                &quot;spaceBetween&quot;: 24,
+                &quot;pager&quot;: true,
+                &quot;loop&quot;: true,
+                &quot;tabs&quot;: true,
+                &quot;navigation&quot;: {
+                  &quot;prevEl&quot;: &quot;.page-prev&quot;,
+                  &quot;nextEl&quot;: &quot;.page-next&quot;
+                }
+              }">
+                <div class="swiper-wrapper" id="swiper-wrapper-b6f554ab486387a8" aria-live="polite">
+
+                  <!-- Item -->
+                  <div class="swiper-slide h-auto swiper-slide-active" data-swiper-tab="#author-1" role="group" aria-label="1 / 3" data-swiper-slide-index="0" style="width: 783px; margin-right: 24px;">
+                    <figure class="card h-100 position-relative border-0 bg-transparent">
+                      <blockquote class="card-body p-0 mb-0">
+                        <p class="fs-lg mb-0">Je suis courtière immobilière, et je choisis de consacrer mon temps à bien faire les choses plutôt qu’à multiplier les dossiers. <br> <br> Chaque transaction est pour moi une collaboration précieuse, menée avec rigueur, transparence et attention aux détails.
+Je prends le temps de comprendre les besoins de mes clients, d’analyser chaque propriété avec soin, et d’accompagner chaque étape avec professionnalisme. <br> <br> Mon expertise en inspection municipale me permet d’aller plus loin : je sais repérer les éléments techniques, réglementaires et environnementaux qui peuvent influencer une transaction. C’est une valeur ajoutée concrète pour mes clients, qui bénéficient d’un regard averti et d’un accompagnement éclairé.
+<br><br> Ce que j’aime par-dessus tout, ce sont les propriétés de campagne. C’est mon quotidien, mon environnement, et mon expertise. Habitant moi-même en milieu rural me permet de mieux comprendre les réalités, les atouts et les subtilités de ce type de propriété. Et c’est avec cette sensibilité que j’accompagne mes clients dans leurs projets.
+Mais au-delà des signatures et des visites, ce sont les liens humains qui me motivent. 
+Parce que bien faire les choses, c’est aussi les faire avec cœur.
+
+</p>
+                      </blockquote>
+                      <figcaption class="card-footer border-0 d-sm-flex d-md-none w-100 pb-2">
+                        <div class="d-flex align-items-center border-end-sm pe-sm-4 me-sm-2">
+                          <img src="assets/img/maude.jpg" width="48" class="rounded-circle" alt="Ralph Edwards">
+                          <div class="ps-3">
+                            <h5 class="fw-semibold lh-base mb-0">Maude Boivin</h5>
+                            <span class="fs-sm text-muted">Courtière immobilière</span>
+                          </div>
+                        </div>
+                        <img src="assets/img/logo.svg" width="160" class="d-block mt-2 ms-5 mt-sm-0 ms-sm-0" alt="Company logo">
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                
+                </div>
+              <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+            </div>
+
+            <!-- Pagination (Pager) -->
+            <nav class="pagination d-flex justify-content-center justify-content-md-start">
+              <div class="page-item me-2">
+                <a class="page-link page-prev btn-icon btn-sm" href="#" aria-label="Previous slide" tabindex="0" role="button" aria-controls="swiper-wrapper-b6f554ab486387a8">
+                  <i class="bx bx-chevron-left"></i>
+                </a>
+              </div>
+              <ul class="list-unstyled d-flex justify-content-center w-auto mb-0 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><li class="page-item active" tabindex="0" aria-current="true"><a href="#" class="page-link btn-icon btn-sm">1</a></li><li class="page-item" tabindex="0"><a href="#" class="page-link btn-icon btn-sm">2</a></li><li class="page-item" tabindex="0"><a href="#" class="page-link btn-icon btn-sm">3</a></li></ul>
+              <div class="page-item ms-2">
+                <a class="page-link page-next btn-icon btn-sm" href="#" aria-label="Next slide" tabindex="0" role="button" aria-controls="swiper-wrapper-b6f554ab486387a8">
+                  <i class="bx bx-chevron-right"></i>
+                </a>
+              </div>
+            </nav>
+          </div>
+          <div class="col-md-4 d-none d-md-block">
+
+            <!-- Swiper tabs (Author images) -->
+            <div class="swiper-tabs">
+
+              <!-- Author image 1 -->
+              <div id="author-1" class="card bg-transparent border-0 swiper-tab active">
+                <div class="card-body p-0 rounded-3 bg-size-cover bg-repeat-0 bg-position-top-center" style="background-image: url(assets/img/maude.jpg);"></div>
+                <div class="card-footer d-flex w-100 border-0 pb-0">
+                  <img src="assets/img/logo.svg" width="160" class="d-none d-xl-block" alt="Company logo">
+                  <div class="border-start-xl ps-xl-4 ms-xl-2">
+                    <h5 class="fw-semibold lh-base mb-0">Maude Boivin</h5>
+                    <span class="fs-sm text-muted">Courtière immobilière <span class="d-xl-none d-inline">ProprioDirect</span></span>
+                  </div>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Bandeau valeur ajoutée -->
       <section class="container">
